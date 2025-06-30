@@ -1,8 +1,23 @@
 console.log("Email Writer Extension - content Script Loaded");
 function findComposeToolbar() {
+    const selector = [
+        '.aDh', // Gmail Compose Toolbar
+        '.btC', // Outlook Compose Toolbar
+        '[role="toolbar"]', // Generic Toolbar
+        '.gU.Up', // Yahoo Mail Compose Toolba
 
+    ];
+    for (const sel of selector) {
+        const toolbar = document.querySelector(sel);
+        if (toolbar) {
+            console.log(`Toolbar found with selector: ${sel}`);
+            return toolbar;
+        }
+        return null;
+    }
 }
 function createAIButton() {
+
 }
 
 function injectButton() {
